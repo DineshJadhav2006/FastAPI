@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Create Account</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <style>
+        :root {
+            --primary: #4361ee;
+            --primary-light: #4895ef;
+            --secondary: #3f37c9;
+            --dark: #1b263b;
+            --light: #f8f9fa;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .signup-container {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            background: white;
+            padding: 50px;
+        }
+        .signup-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .signup-header h1 {
+            color: var(--dark);
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        .signup-header p {
+            color: #666;
+        }
+        .input-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--dark);
+            font-weight: 500;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s;
+            background-color: #f8f9fa;
+        }
+        .input-group input:focus {
+            border-color: var(--primary-light);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+            background-color: white;
+        }
+        .terms {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        .terms input {
+            margin-right: 10px;
+            margin-top: 3px;
+        }
+        .terms label {
+            color: #666;
+            font-size: 14px;
+        }
+        .terms a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .terms a:hover {
+            text-decoration: underline;
+        }
+        .signup-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(to right, var(--primary) 0%, var(--primary-light) 100%);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 20px;
+        }
+        .signup-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+        }
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+        }
+        .login-link a {
+            color: var(--primary);
+            font-weight: 500;
+            text-decoration: none;
+        }
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <div class="signup-header">
+            <h1>Create Account</h1>
+            <p>Join us today to get started</p>
+        </div>
+        
+        <form action="/signup" method="POST">
+            <div class="input-group">
+                <label for="username">Full Name</label>
+                <input type="text" id="username" name="username" placeholder="Enter your full name" required />
+            </div>
+            
+            <div class="input-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required />
+            </div>
+            
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Create a password" required />
+            </div>
+            
+            <div class="terms">
+                <input type="checkbox" id="agree-terms" name="agree_terms" required />
+                <label for="agree-terms">
+                    I agree to the <a href="/terms">Terms of Service</a> and <a href="/privacy">Privacy Policy</a>
+                </label>
+            </div>
+            
+            <button type="submit" class="signup-btn">Create Account</button>
+            
+            <div class="login-link">
+                Already have an account? <a href="/login">Log in</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
