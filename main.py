@@ -1,26 +1,21 @@
 from fastapi import FastAPI, Request, Form, HTTPException
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
-import mysql.connector
+from db import get_connection  # ✅ Import from db.py
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
 
-def get_connection():
-    return mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="Dinu@3011",
-        database="simpledb"
-    )
 
 @app.get("/", response_class=HTMLResponse)
 def home(request: Request):
     return templates.TemplateResponse("login.html", {"request": request})
 
+
 @app.get("/signup", response_class=HTMLResponse)
 def get_signup_page(request: Request):
     return templates.TemplateResponse("signup.html", {"request": request})
+
 
 @app.post("/signup")
 def signup(username: str = Form(...), email: str = Form(...), password: str = Form(...)):
@@ -45,9 +40,11 @@ def signup(username: str = Form(...), email: str = Form(...), password: str = Fo
     print(f"SIGNUP success - User created: {email}")
     return RedirectResponse(url="/login", status_code=303)
 
+
 @app.get("/login", response_class=HTMLResponse)
 def get_login_page(request: Request):
     return templates.TemplateResponse("login.html", {"request": request})
+
 
 @app.post("/login")
 def login(email: str = Form(...), password: str = Form(...)):
@@ -66,3 +63,9 @@ def login(email: str = Form(...), password: str = Form(...)):
 
     print(f"LOGIN success - Welcome {email}")
     return {"message": f"Welcome, {email}!"}
+
+
+
+# crunch
+# crul
+# 
